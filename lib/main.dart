@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widget_of_the_week/model/image_filtered.dart';
 
 main(List<String> args) {
   runApp(MyApp());
@@ -13,7 +14,9 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('ImageFiltered Widget'),
         ),
-        body: Center(),
+        body: Center(
+          child: imageFiltered(),
+        ),
       ),
     );
   }
