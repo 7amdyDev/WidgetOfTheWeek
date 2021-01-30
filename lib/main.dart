@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 
 main(List<String> args) {
@@ -11,26 +10,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Widget Of The Week',
       home: Scaffold(
+        drawer: Drawer(),
         appBar: AppBar(
-          title: Text('ImageFiltered Widget'),
+          title: Text('PhysicalModel Widget'),
         ),
         body: Center(
-          child: ImageFiltered(
-            imageFilter: ImageFilter.matrix(
-              Matrix4.skewY(-0.3).storage,
-            ),
-            child: Container(
-              color: Colors.lightBlue[100],
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  '2A Channel',
-                  style: TextStyle(
-                    fontSize: 48,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+          child: PhysicalModel(
+            color: Colors.transparent,
+            shadowColor: Colors.blue,
+            shape: BoxShape.circle,
+            elevation: 20,
+            child: Image.asset(
+              'assets/2a.png',
             ),
           ),
         ),
