@@ -11,20 +11,25 @@ class MyApp extends StatelessWidget {
         title: 'Widget Of The Week',
         home: Scaffold(
           appBar: AppBar(
-            title: Text('PhysicalModel Widget'),
+            title: Text('Builder Widget'),
           ),
-          body: Center(
-            child: PhysicalModel(
-              color: Colors.yellow,
-              shadowColor: Colors.pink,
-              elevation: 20,
-              //shape: BoxShape.circle,
-              borderRadius: BorderRadius.circular(15),
-              child: Image.asset(
-                'assets/2a.png',
-                width: 200,
-              ),
-            ),
+          body: Center(),
+          floatingActionButton: Builder(
+            builder: (BuildContext context) {
+              return FloatingActionButton(
+                child: Icon(Icons.add),
+                onPressed: () {
+                  Scaffold.of(context).showSnackBar(
+                    SnackBar(
+                        backgroundColor: Colors.blue,
+                        content: Text(
+                          '2A Channel',
+                          textAlign: TextAlign.center,
+                        )),
+                  );
+                },
+              );
+            },
           ),
         ));
   }
