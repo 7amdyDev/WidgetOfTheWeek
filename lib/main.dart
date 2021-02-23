@@ -11,25 +11,39 @@ class MyApp extends StatelessWidget {
         title: 'Widget Of The Week',
         home: Scaffold(
           appBar: AppBar(
-            title: Text('Builder Widget'),
+            title: Text('IgnorePointer Widget'),
           ),
-          body: Center(),
-          floatingActionButton: Builder(
-            builder: (BuildContext context) {
-              return FloatingActionButton(
-                child: Icon(Icons.add),
-                onPressed: () {
-                  Scaffold.of(context).showSnackBar(
-                    SnackBar(
-                        backgroundColor: Colors.blue,
-                        content: Text(
-                          '2A Channel',
-                          textAlign: TextAlign.center,
-                        )),
-                  );
-                },
-              );
-            },
+          body: Center(
+            child: IgnorePointer(
+              ignoring: false,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  IgnorePointer(
+                    ignoring: false,
+                    child: RaisedButton(
+                      onPressed: () => print('blue'),
+                      color: Colors.blue,
+                      child: Container(
+                        height: 100,
+                        width: 200,
+                      ),
+                    ),
+                  ),
+                  IgnorePointer(
+                    ignoring: false,
+                    child: RaisedButton(
+                      onPressed: () => print('red'),
+                      color: Colors.red,
+                      child: Container(
+                        height: 50,
+                        width: 100,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ));
   }
